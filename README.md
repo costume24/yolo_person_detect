@@ -1,9 +1,11 @@
-## YOLOv3行人检测辅助脚本集
+## YOLOv3行人检测
 
 本脚本集合主要是针对YOLOv3的两个主流版本（[AlexeyAB/darknet](https://github.com/AlexeyAB/darknet) & [pjreddie/darknet](https://github.com/pjreddie/darknet)）的脚本辅助集合，主要用途如下：
 
 1. 从VOC2007/VOC2012/COCO等数据集中提取出person类图片，并转换标注；
+
 2. 计算mAP正确率；
+
 3. 从实验的训练日志中提取出loss变化图
 
 ## File structure
@@ -42,15 +44,18 @@ yolo_person_detect
             xxx.txt
 ```
 
-
-
 ## 效果对比
 
-YOLO_mine
+
+
+YOLO_mine（只检测行人）
 
 ![kite-7-final](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-7-final.jpg)
 
-YOLO_pj
+YOLO_pj（官版，全检测）
 
 ![kite-pj](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-pj.jpg)
+
+
+
 
