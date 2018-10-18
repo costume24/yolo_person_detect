@@ -68,3 +68,14 @@ COCO2017| 118287（64115）|未统计
 
 \* 括号里面为person类图片数量
 
+
+
+## 训练过程
+
+数据集：VOC2007+VOC2012+COCO2017
+
+训练：8w iters
+
+训练技巧：采用[AlexeyAB/darknet](https://github.com/AlexeyAB/darknet) 中的上采样加强，小样本效果更好
+
+![训练过程](https://github.com/pascal1129/yolo_person_detect/blob/master/yolo_loss_analyse/result.png)
