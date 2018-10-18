@@ -48,9 +48,9 @@ yolo_person_detect
 
 YOLO_mine
 
-![kite-7-final](D:\yolo_person_detect\results_show\kite-7-final.jpg)
+![kite-7-final](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-7-final.jpg)
 
 YOLO_pj
 
-![kite-pj](D:\yolo_person_detect\results_show\kite-pj.jpg)
+![kite-pj](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-pj.jpg)
 
