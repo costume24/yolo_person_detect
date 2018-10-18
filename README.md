@@ -20,7 +20,7 @@ yolo_person_detect
 │  │  show_voc_xml.py
 │  │  show_yolo_label.py
 │  │  xml2json.py
-│  │  YOLO_coco_label.py
+│  │  coco_to_yolo.py
 │  │
 │  ├─YOLO_VOC2007
 │  │      extract_person.py
