@@ -10,6 +10,19 @@
 
 3. 从实验的训练日志中提取出loss变化图
 
+
+## 效果对比
+
+YOLO_mine（只检测行人）
+
+![kite-7-final](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-7-final.jpg)
+
+YOLO_pj（官版，全检测）
+
+![kite-pj](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-pj.jpg)
+
+
+
 ## 文件结构
 
 ```
@@ -46,15 +59,7 @@ yolo_person_detect
 
 
 
-## 参考资料
-
-[yolov3训练的集大成者](<https://blog.csdn.net/lilai619/article/details/79695109>)
-
-[配置文件的设定参考](<https://blog.csdn.net/helloworld1213800/article/details/79749359>)
-
-[YOLO官网](<https://pjreddie.com/darknet/yolo/>)
-
-[YOLO论文翻译](<https://www.jianshu.com/p/a2a22b0c4742?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation>)
+<https://www.jianshu.com/p/a2a22b0c4742?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation>)
 
 
 
@@ -194,6 +199,30 @@ python reval_voc_py3.py output_dir='./'
 
 
 
+## 训练常用指令
+
+训练
+
+​	加上了tee指令把训练日志保存到txt文本
+
+```
+./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 -gpus 0,1 |tee -a train7.txt
+```
+
+恢复训练
+
+```
+./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup -gpus 0,1 tee -a train7.txt
+```
+
+测试
+
+```
+./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_50000.weights ../test_data/p2.jpg
+```
+
+
+
 ## VOC数据集格式
 
 以上述VOC2007+VOC2012数据集为例，以下均为处理过的数据集：
@@ -235,8 +264,6 @@ python reval_voc_py3.py output_dir='./'
 
 
 
-
-
 ## COCO数据集格式
 
 数据集格式
@@ -251,21 +278,6 @@ python reval_voc_py3.py output_dir='./'
 [COCO数据集下载](<http://cocodataset.org/#download>)
 
 [COCO-->YOLO格式转换，代码包含了操作介绍](<https://github.com/PaulChongPeng/darknet/blob/master/tools/coco_label.py>)
-
-
-
-
-
-
-## 效果对比
-
-YOLO_mine（只检测行人）
-
-![kite-7-final](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-7-final.jpg)
-
-YOLO_pj（官版，全检测）
-
-![kite-pj](https://github.com/pascal1129/yolo_person_detect/blob/master/results_show/kite-pj.jpg)
 
 
 
@@ -295,13 +307,9 @@ COCO2017| 118287（64115）|未统计
 
 ![训练过程](https://github.com/pascal1129/yolo_person_detect/blob/master/yolo_loss_analyse/result.png)
 
-
-
 配置：batch=64/16，总计8w次迭代，在原来的5w次之后，追加2w次0.001和1w次0.0001，0.00001
 耗时：5h/万次迭代
 结果：0.98
-
-
 
 map        | p| r|f1|IOU
 ----------------| ---|---|--|--
@@ -309,22 +317,11 @@ map        | p| r|f1|IOU
 
 
 
+## 参考资料
 
+[yolov3训练的集大成者](<https://blog.csdn.net/lilai619/article/details/79695109>)
 
+[配置文件的设定参考](<https://blog.csdn.net/helloworld1213800/article/details/79749359>)
 
+[YOLO官网](<https://pjreddie.com/darknet/yolo/>)
 
-## 训练常用指令
-
-训练
-
-​	加上了tee指令把训练日志保存到txt文本
-
-	./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 -gpus 0,1 |tee -a train7.txt
-
-恢复训练
-
-	./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup -gpus 0,1 tee -a train7.txt
-
-测试
-
-	./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_50000.weights ../test_data/p2.jpg
