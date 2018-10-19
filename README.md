@@ -200,9 +200,7 @@ python reval_voc_py3.py output_dir='./'
 
 ## 训练常用指令
 
-训练
-
-​	加上了tee指令把训练日志保存到txt文本
+训练：加上了tee指令把训练日志保存到txt文本
 
 ```
 ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 -gpus 0,1 |tee -a train7.txt
