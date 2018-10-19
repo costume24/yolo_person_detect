@@ -76,7 +76,7 @@ COCO2017| 118287（64115）|未统计
 
 训练迭代数：8w iters
 
-训练技巧：参见[how-to-train-to-detect-your-custom-objects]([https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
+训练技巧：参见[how-to-train-to-detect-your-custom-objects](https://github.com/AlexeyAB/darknet#how-to-train-to-detect-your-custom-objects)
 
 
 
