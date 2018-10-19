@@ -95,7 +95,7 @@ make
 
 处理时，默认所有的train = train+val，不区分二者，2007单独还有个test
 
-##### 0、下载VOC2007+2012数据集
+#### 0、下载VOC2007+2012数据集
 
 下载数据集
 
@@ -109,11 +109,11 @@ make
     tar xvf VOCtest_06-Nov-2007.tar
     tar xvf VOCtrainval_11-May-2012.tar
 
-##### 1、通过extract_person.py提取含人数据
+#### 1、通过extract_person.py提取含人数据
 
 分别运行2007和2012的提取代码
 
-##### 2、通过voc_label.py转化voc数据格式为yolo支持的格式
+#### 2、通过voc_label.py转化voc数据格式为yolo支持的格式
 会在脚本所在文件夹产生相应的txt文本，存储数据集地址信息：
 
     2007_train.txt 
@@ -128,14 +128,14 @@ make
 
 ## 配置文件
 
-##### 0、下载源代码，下载预训练权重
+#### 0、下载源代码，下载预训练权重
 
 	git clone https://github.com/AlexeyAB/darknet.git
 	wget https://pjreddie.com/media/files/darknet53.conv.74
 
-##### 1、配置Makefile
+#### 1、配置Makefile
 
-##### 2、配置cfg/voc.data
+#### 2、配置cfg/voc.data
 ```
 classes= 1
 train  = /home/pascal/person_data2/train.txt
@@ -144,14 +144,14 @@ names = data/voc.names
 backup = backup
 ```
 
-##### 3、配置data/voc.names
+#### 3、配置data/voc.names
 
 	person
-##### 4、新建backup文件夹
+#### 4、新建backup文件夹
 
 	mkdir backup
 
-##### 5、配置cfg/yolov3-voc.cfg
+#### 5、配置cfg/yolov3-voc.cfg
 
 	batch, sub按需修改
 	一共三个YOLO层，均需要修改：
@@ -160,21 +160,21 @@ backup = backup
 	
 	# filters=(classes + coords + 1)*<number of mask>
 
-##### 6、make编译
+#### 6、make编译
 
-##### 7、开始训练，并留下日志
+#### 7、开始训练，并留下日志
 
     ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg ../darknet53.conv.74 -gpus 0,1 | tee -a helmet1.txt
 
-##### 8、恢复训练
+#### 8、恢复训练
 
 	./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc.backup -gpus 0,1 | tee -a train7.log
 
-##### 9、单张图片测试（需要将batch、subvision均修改为1）
+#### 9、单张图片测试（需要将batch、subvision均修改为1）
 
 	./darknet detector test cfg/voc.data cfg/yolov3-voc.cfg backup/yolov3-voc_final.weights test_data/p0.jpg
 
-##### 10、性能检测
+#### 10、性能检测
 
 计算mAp
 
@@ -240,7 +240,7 @@ python reval_voc_py3.py output_dir='./'
          ├── JPEGImages
          └── labels
 
-##### VOC的xml格式
+#### VOC的xml格式
 
 核心部分如下:
 
@@ -257,7 +257,7 @@ python reval_voc_py3.py output_dir='./'
 		</object>
 	</annotation>
 
-##### VOC的图片格式
+#### VOC的图片格式
 
 行列分布同pillow.Image，先行后列
 
