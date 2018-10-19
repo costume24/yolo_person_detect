@@ -59,10 +59,6 @@ yolo_person_detect
 
 
 
-<https://www.jianshu.com/p/a2a22b0c4742?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation>)
-
-
-
 ## 官方Demo运行
 
 - 下载源代码、预训练权重
@@ -75,14 +71,17 @@ wget https://pjreddie.com/media/files/yolov3.weights
 
 - 修改Makefile并编译，可以加上 -j8 等参数设定多CPU编译
 
-	vim Makefile	
-	make
+```Shell
+vim Makefile	
+make
+```
 
-*注意：OpenCV版本号亲测3.40可用，但是3.41不可用，可参见[YOLOv3的Darknet在OpenCV下编译出错填坑](https://zhuanlan.zhihu.com/p/36933700)*
+注意：OpenCV版本号亲测3.40可用，但是3.41不可用，可参见[YOLOv3的Darknet在OpenCV下编译出错填坑](https://zhuanlan.zhihu.com/p/36933700)
 
 - 试运行图片检测demo
-
-	./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+```
+./darknet detect cfg/yolov3.cfg yolov3.weights data/dog.jpg
+```
 
 - 试运行视频检测demo
 
